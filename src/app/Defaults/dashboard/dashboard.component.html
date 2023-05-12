@@ -1,0 +1,312 @@
+<div
+  style="
+    font-family: rye;
+    background-image: url(../../../assets/Images/ustory.png);
+    background-size: cover;
+    background-position: top;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    height: 100vh !important;
+    width: 100% !important;
+  "
+  class="d-flex justify-content-evenly text-white"
+>
+  <div
+    style="
+      background-color: rgba(0, 0, 0, 0.466);
+      border-radius: 20px;
+      width: 23%;
+    "
+    class="h-100 d-flex flex-column"
+  >
+    <div
+      style="height: 15%"
+      class="w-100 d-flex align-items-center justify-content-between"
+    >
+      <div
+        class="d-flex justify-content-evenly align-items-center"
+        style="height: 50px; width: 120px"
+      >
+        <div style="height: 50px; width: 50px">
+          <img
+            width="100%"
+            height="100%"
+            style="border-radius: 100%"
+            src="assets/Images/Blog Logo J.webp"
+            alt="logo"
+          />
+        </div>
+        <span style="font-size: 40px">JB</span>
+      </div>
+      <div class="w-25 d-flex align-items-center justify-content-center h-50">
+        <i
+          style="color: rgb(0, 238, 255); font-size: 40px"
+          class="fa fa-bell"
+        ></i>
+      </div>
+    </div>
+    <div
+      style="height: 85%"
+      class="d-flex p-4 flex-column justify-content-between w-100"
+    >
+      <div
+        style="
+          height: 26%;
+          background-color: rgba(68, 67, 67, 0.781);
+          border-radius: 10px;
+        "
+        class="w-100 d-flex flex-column justify-content-evenly p-3"
+      >
+        <h3>Menu</h3>
+        <div><i class="fa fa-compass text-info px-2"></i> Browse</div>
+        <div><i class="fa fa-search text-info px-2"></i> Search</div>
+      </div>
+      <div
+        style="
+          height: 38%;
+          background-color: rgba(118, 235, 243, 0.781);
+          border-radius: 10px;
+        "
+        class="w-100 d-flex flex-column justify-content-evenly p-3"
+      >
+        <h3>Media</h3>
+        <div><i class="fa fa-video text-dark px-2"></i>WatchList</div>
+        <div><i class="fa fa-book text-dark px-2"></i>ReadList</div>
+        <div><i class="fa fa-heart text-dark px-2"></i>Favorites</div>
+      </div>
+      <div
+        style="
+          height: 20%;
+          background-color: rgba(72, 96, 104, 0.815);
+          border-radius: 10px;
+        "
+        class="w-100 d-flex flex-column justify-content-evenly p-3"
+      >
+        <div><i class="fa fa-gear text-info px-2"></i>Settings</div>
+        <div (click)="logout($event)">
+          <i class="fa fa-sign-out text-info px-2"></i>Logout
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="w-75 h-100 d-flex flex-column justify-content-around"
+    style="border-radius: 10px"
+  >
+    <div
+      style="
+        height: 35%;
+        background-color: rgba(0, 0, 0, 0.767);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      "
+      class="w-100 d-flex align-items-center justify-content-evenly"
+    >
+      <div
+        style="
+          width: 60%;
+          height: 90%;
+          border-radius: 15px;
+          background-color: rgba(67, 95, 95, 0.61);
+        "
+        class="d-flex"
+      >
+        <div
+          style="width: 33%"
+          class="h-100 d-flex align-items-center justify-content-center"
+        >
+          <div
+            style="
+              border-radius: 15px !important;
+              border: 1px solid rgb(73, 73, 73);
+              width: 136px;
+              height: 180px;
+            background-image: url('{{ imagepath + usersDetails.UserImage }}');
+           background-repeat:no-repeat;
+            background-size: cover;
+            background-position: top;
+
+            "
+          ></div>
+        </div>
+
+        <div style="width: 74%" class="d-flex">
+          <div class="w-50 d-flex flex-column p-2 justify-content-around">
+            <div>
+              Fullname,
+              <div style="font-family: chewy">
+                {{ usersDetails.firstname }} {{ usersDetails.lastname }}
+              </div>
+            </div>
+            <div>
+              Email,
+              <div style="font-family: chewy">{{ usersDetails.email }}</div>
+            </div>
+          </div>
+
+          <div class="w-50 p-4">
+            <div>
+              Date of Birth,
+              <div style="font-family: chewy">
+                {{ usersDetails.dateofbirth }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="
+          width: 35%;
+          height: 90%;
+
+          border-radius: 15px;
+          background-color: rgba(63, 90, 90, 0.911);
+        "
+        class="d-flex flex-column justify-content-evenly p-2"
+      >
+        <h2>Welcome, {{ usersDetails.username }}!!!</h2>
+        <div style="font-family: tilla">Id Number: {{ usersDetails.id }}</div>
+        <!-- <div style="font-family: tilla">Today is January 18, 2023</div> -->
+        <div style="font-family: tilla">We're excited to see you explore!</div>
+      </div>
+    </div>
+
+    <div
+      style="
+        height: 63%;
+
+        background-color: rgba(0, 0, 0, 0.514);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      "
+      class="w-100 d-flex justify-content-around flex-column"
+    >
+      <div class="d-flex h-50 justify-content-evenly align-items-center">
+        <div
+          style="
+            height: 80%;
+            background-color: rgba(118, 235, 243, 0.781);
+            border-radius: 10px;
+            background-image: url(../../../assets/Images/dashw2.jpg);
+            background-position: center;
+            border: 1px solid white;
+            background-size: cover;
+            font-size: 40px;
+            text-align: center;
+            background-repeat: no-repeat;
+          "
+          class="w-25 shadow-lg d-flex flex-column justify-content-evenly p-3"
+        >
+          <a
+            class="text-white"
+            routerLink="/Ustory"
+            style="text-decoration: none"
+          >
+            Life-story</a
+          >
+        </div>
+
+        <div
+          style="
+            height: 80%;
+            background-color: rgba(118, 235, 243, 0.781);
+            border-radius: 10px;
+            background-image: url(../../../assets/Images/MusicCover.jpg);
+            background-position: center;
+            border: 1px solid white;
+            background-size: cover;
+
+            font-size: 40px;
+            text-align: center;
+            background-repeat: no-repeat;
+          "
+          class="w-25 shadow-lg d-flex flex-column justify-content-evenly p-3"
+        >
+          <a
+            class="text-white"
+            routerLink="/Umusic"
+            style="text-decoration: none"
+          >
+            Music
+          </a>
+        </div>
+
+        <div
+          style="
+            height: 80%;
+            background-color: rgba(118, 235, 243, 0.781);
+            border-radius: 10px;
+            background-image: url(../../../assets/Images/proaesthetics.jpg);
+            background-position: center;
+            border: 1px solid white;
+            background-size: cover;
+            font-size: 40px;
+            text-align: center;
+            background-repeat: no-repeat;
+          "
+          class="w-25 shadow-lg d-flex flex-column justify-content-evenly p-3"
+        >
+          <a
+            class="text-white"
+            routerLink="/Uaesthetics"
+            style="text-decoration: none"
+          >
+            Aesthetics
+          </a>
+        </div>
+      </div>
+
+      <div class="d-flex h-50 align-items-center justify-content-evenly">
+        <div
+          style="
+            height: 80%;
+            background-color: rgba(118, 235, 243, 0.781);
+            border-radius: 10px;
+            background-image: url(../../../assets/Images/NNVL.png);
+            background-position: center;
+            border: 1px solid white;
+            background-size: cover;
+            font-size: 40px;
+            text-align: center;
+            background-repeat: no-repeat;
+          "
+          class="w-25 shadow-lg d-flex flex-column justify-content-evenly p-3"
+        >
+          <a
+            class="text-white"
+            routerLink="/Unovels"
+            style="text-decoration: none"
+          >
+            Novels
+          </a>
+        </div>
+
+        <div
+          style="
+            height: 80%;
+            background-color: rgba(118, 235, 243, 0.781);
+            border-radius: 10px;
+            background-image: url(../../../assets/Images/mystory\ heading.jpg);
+            background-position: center;
+            border: 1px solid white;
+            background-size: cover;
+            font-size: 40px;
+            text-align: center;
+            background-repeat: no-repeat;
+          "
+          class="w-25 shadow-lg d-flex flex-column justify-content-evenly p-3"
+        >
+          <a
+            class="text-white"
+            routerLink="/Umovies"
+            style="text-decoration: none"
+          >
+            TV shows
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

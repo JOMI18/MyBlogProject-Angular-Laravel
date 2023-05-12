@@ -1,0 +1,5 @@
+.shadow-lg:hover {
+  border: 1px solid salmon !important;
+  transform: scale(1.2);
+  cursor: pointer;
+}

@@ -1,0 +1,296 @@
+<div
+  style="
+    height: 100vh !important;
+    width: 100% !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../../assets/Images/pink-storybg.jpg);
+    font-family: amita;
+  "
+  class="text-white d-flex flex-column justify-content-between"
+>
+  <div
+    style="
+      height: 9vh;
+      border-bottom: 1px solid rgba(248, 246, 246, 0.493) !important;
+      background-color: rgba(0, 0, 0, 0.507);
+      text-align: center;
+    "
+    class="w-100 d-flex justify-content-between align-items-center"
+  >
+    <div class="w-25 h-100 d-flex align-items-center justify-content-center">
+      Life-Story Dashboard
+    </div>
+    <div class="w-75 h-100 d-flex align-items-center justify-content-evenly">
+      <input
+        class="text-dark h-75"
+        style="
+          background: white;
+          width: 60%;
+          border: none;
+          border-radius: 5px;
+          outline: none;
+        "
+        type="text"
+      />
+      Searchbar
+
+      <i class="fa fa-bell"></i> Notifications
+    </div>
+  </div>
+
+  <div
+    *ngIf="loading"
+    class="h-25 text-white d-flex align-items-center justify-content-center"
+    style="width: 100% !important; font-size: 35px; font-family: redressed"
+  >
+    <span
+      style="font-size: 20px"
+      class="spinner-border spinner-border mr-5"
+    ></span>
+    Wait Please, Posts are loading...
+  </div>
+
+  <div style="height: 90vh" class="w-100 d-flex justify-content-around">
+    <div
+      style="
+        height: 100%;
+        width: 70%;
+        background-color: rgba(102, 117, 117, 0.603);
+      "
+      class="border d-flex flex-column justify-content-around border-white"
+    >
+      <div
+        style="height: 6%; border-bottom: 1px solid rgba(128, 128, 128, 0.288)"
+        class="w-100 text-white align-items-center justify-content-evenly d-flex"
+      >
+        <div>
+          <a
+            class="text-white"
+            routerLink="/Umovies"
+            style="text-decoration: none"
+          >
+            <i class="fa fa-home"></i> Movies
+          </a>
+        </div>
+
+        <div>
+          <a
+            class="text-white"
+            routerLink="/Umusic"
+            style="text-decoration: none"
+          >
+            <i class="fa fa-home"></i> Music
+          </a>
+        </div>
+
+        <div>
+          <a
+            class="text-white"
+            routerLink="/Unovels"
+            style="text-decoration: none"
+          >
+            <i class="fa fa-home"></i> Novels
+          </a>
+        </div>
+
+        <div>
+          <a
+            class="text-white"
+            routerLink="/Uaesthetics"
+            style="text-decoration: none"
+          >
+            <i class="fa fa-home"></i>
+            Aesthetics
+          </a>
+        </div>
+      </div>
+
+      <div
+        style="
+          overflow-y: scroll;
+          height: 88%;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 50px;
+          grid-auto-rows: minmax(200px, auto);
+        "
+        class="w-100 flow"
+      >
+        <div
+          style="
+            width: 80%;
+            height: 100%;
+            border: 1px solid black;
+
+            text-align: center;
+            border-radius: 10px;
+            background-image: url('{{ imagepath + item.Image }}');
+
+           background-repeat:no-repeat;
+            background-size: cover;
+            background-position: top;
+
+          "
+          *ngFor="
+            let item of story
+              | paginate : { itemsPerPage: 12, currentPage: page }
+          "
+        >
+          <div class="d-flex w-100 h-100 flex-column justify-content-between">
+            <div
+              style="height: 8vh"
+              class="w-100 d-flex justify-content-end align-items-center"
+            >
+              <div
+                id="{{ item.id }}"
+                (click)="displaymore(item)"
+                style="
+                  font-size: 40px;
+                  cursor: pointer;
+                  border-top-right-radius: 10px;
+                  background-color: rgba(248, 66, 66, 0.925);
+                "
+                class="w-25 h-100"
+              >
+                +
+              </div>
+            </div>
+
+            <div
+              style="color: rgb(255, 255, 255)"
+              class="d-flex flex-column justify-content-around align-items-center"
+            >
+              <div>
+                <small>{{ item.Title }}</small>
+              </div>
+              <div>
+                <small>{{ item.Age }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="height: 6%"
+        class="justify-content-center w-100 p-0 m-0 d-flex"
+      >
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>
+    </div>
+
+    <div
+      style="
+        width: 28%;
+        background-color: rgba(0, 0, 0, 0.589);
+        font-family: chewy;
+      "
+      class="border h-100 border-white"
+    >
+      <div
+        style="font-family: henny; font-size: 55px; text-align: center"
+        class="w-100 h-100 p-2 d-flex flex-column justify-content-center"
+        *ngIf="display"
+      >
+        ...You need to click a tile to display details...
+      </div>
+
+      <div class="w-100 h-100" *ngIf="called && content">
+        <div
+          style="height: 5%"
+          class="w-100 d-flex justify-content-end align-items-top"
+        >
+          <button
+            class="h-100 bg-transparent border-0"
+            style="font-size: 25px; width: 10%"
+            (click)="close()"
+          >
+            <i class="fa fa-times text-white"></i>
+          </button>
+        </div>
+
+        <div style="height: 95%; width: 100%; overflow-y: scroll" class="flow">
+          <div
+            class="w-100 h-50 align-items-center d-flex justify-content-around"
+          >
+            <div
+              style="height: 90%; width: 50%;
+              background-position: top;
+              background-size: cover;
+              border-radius: 20px;
+              border: 1px solid rgba(112, 112, 112, 0.582);
+              background-repeat: no-repeat;
+               background-image: url('{{ imagepath + content.Image }}');"
+            ></div>
+            <div
+              style="width: 45%; text-align: center"
+              class="h-100 d-flex flex-column justify-content-around"
+            >
+              <div>Name: {{ content.Title }}</div>
+              <div>Career: {{ content.Career }}</div>
+              <div>Age: {{ content.Age }}</div>
+            </div>
+          </div>
+          <div
+            style="border-bottom: 1px solid rgba(146, 146, 146, 0.589)"
+            class="w-100 h-25 d-flex flex-column p-2 justify-content-between"
+          >
+            <div>Date of Birth: {{ content.Dob }}</div>
+            <div>Nationality: {{ content.Nationality }}</div>
+            <div>Instagram Handle: {{ content.Ig }}</div>
+          </div>
+          <div
+            style="
+              text-align: center;
+              border-bottom: 1px solid rgba(146, 146, 146, 0.589);
+            "
+            class="w-100 h-50 p-2"
+          >
+            <h5 class="text-info p-1">More About {{ content.Title }}</h5>
+            {{ content.Story }}
+          </div>
+          <div
+            style="
+              text-align: center;
+              border-bottom: 1px solid rgba(146, 146, 146, 0.589);
+            "
+            class="w-100 h-50 p-2 d-flex flex-column justify-content-around"
+          >
+            <h5 class="text-info p-1">{{ content.Title }} is famous for</h5>
+
+            <div>Projects: {{ content.Projects }}</div>
+            <div>Posted: {{ content.created_at }}</div>
+            <div
+              style="width: 100%"
+              class="d-flex justify-content-evenly align-items-center"
+            >
+              <div class="border border-rounded border-light shadow-lg">
+                <img
+                  width="30px"
+                  src="../../../assets/Images/icons8-thumbs-up-48.png"
+                  alt=""
+                />
+              </div>
+              <div class="border border-rounded border-light shadow-lg">
+                <img
+                  width="30px"
+                  src="../../../assets/Images/icons8-thumbs-down-48.png"
+                  alt=""
+                />
+              </div>
+              <div class="border border-rounded border-light shadow-lg">
+                <img
+                  width="30px"
+                  src="../../../assets/Images/icons8-add-bookmark-64.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

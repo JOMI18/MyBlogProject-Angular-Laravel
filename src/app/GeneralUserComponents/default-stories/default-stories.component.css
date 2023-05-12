@@ -1,0 +1,207 @@
+.base {
+  text-align: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 100 !important;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(7, 7, 7, 0.541) !important;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transition: 0.9s ease-in-out;
+  display: none;
+}
+.lays {
+  width: 82% !important;
+  height: 95% !important;
+}
+.imag {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.base:hover .overlay {
+  display: inherit;
+}
+/* .button {
+  color: white;
+  font-size: 20px;
+  width: 120px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  -webkit-transform: translate(-20%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+} */
+.butts {
+  color: white;
+  font-size: 14px !important;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  -webkit-transform: translate(-20%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.bodys {
+  background-color: rgb(228, 228, 228);
+  position: absolute;
+  width: 98% !important;
+  margin: auto !important;
+  /* display: flex;
+  flex-direction: row; */
+  animation-name: Enlarge;
+  transition: all 1s ease-in-out;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  left: 1%;
+  border: 1px solid rgb(0, 0, 0);
+  top: 130% !important;
+  /* bottom: 0; */
+  z-index: 999;
+  height: 120vh !important;
+}
+.body {
+  background-color: rgb(228, 228, 228);
+  position: absolute;
+  width: 50% !important;
+  margin: auto !important;
+  animation-name: Enlarge;
+  transition: all 1s ease-in-out;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  left: 25%;
+  border: 1px solid rgb(0, 0, 0);
+  top: 130% !important;
+  z-index: 999;
+  height: 120vh !important;
+}
+@media (max-width: 920px) {
+  .aes,
+  .mov,
+  .mus,
+  .nov {
+    width: 100% !important;
+  }
+  .frame,
+  .audio {
+    width: 90% !important;
+  }
+  .feran {
+    width: 55% !important;
+  }
+  .writings {
+    font-size: 11px !important;
+  }
+}
+@media (max-width: 700px) {
+  .movies1 {
+    width: 50% !important;
+  }
+  .movies2 {
+    width: 50% !important;
+  }
+  .change {
+    padding: 0px !important;
+    height: 30% !important ;
+  }
+  .switch {
+    border-left: 1px solid rgba(0, 0, 0, 0.212);
+    border-right: 1px solid rgba(0, 0, 0, 0.212);
+    width: 50% !important;
+  }
+  .double {
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+  .one {
+    height: 100% !important;
+    width: 45% !important;
+    flex-direction: column !important;
+  }
+  .two {
+    height: 60% !important;
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+  .feran {
+    width: 65% !important;
+  }
+}
+@media (max-width: 580px) {
+  .frame {
+    width: 98% !important;
+  }
+  .movies {
+    flex-direction: column !important;
+  }
+  .music {
+    flex-direction: column-reverse !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .movies2,
+  .music1 {
+    width: 100% !important;
+  }
+  .feran {
+    width: 80% !important;
+  }
+}
+@media (max-width: 450px) {
+  .writings {
+    font-size: 9px !important;
+  }
+  .one {
+    width: 80% !important;
+  }
+  .feran {
+    width: 95% !important;
+  }
+  /* .entire {
+    flex-direction: column !important;
+  } */
+  .aes:nth-child(3),
+  .aes:nth-child(2),
+  .switch:nth-child(2) {
+    display: none !important;
+  }
+  .switch {
+    width: 100% !important;
+  }
+  .double {
+    flex-direction: row !important;
+  }
+  .one {
+    height: 75% !important;
+    width: 95% !important;
+  }
+  .two {
+    height: 80% !important;
+    width: 100% !important;
+  }
+  .movies1,
+  .music2 {
+    width: 75% !important;
+  }
+  .frame {
+    width: 65% !important;
+    height: 90% !important;
+  }
+  .audio {
+    width: 80% !important;
+    height: 35px !important;
+  }
+  .switch {
+    border: none !important;
+  }
+}

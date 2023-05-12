@@ -1,0 +1,48 @@
+nav {
+  height: 10vh;
+  background: linear-gradient(105deg, black, #566a75, rgb(125, 229, 255));
+  font-family: blenda;
+}
+
+@media (max-width: 748px) {
+  .sign {
+    width: 35% !important;
+  }
+}
+@media (max-width: 630px) {
+  .logos {
+    width: 35% !important;
+  }
+  .content {
+    display: none !important;
+  }
+  .sign {
+    width: 60% !important;
+  }
+}
+@media (max-width: 380px) {
+  nav {
+    height: 15vh;
+  }
+  nav div {
+    flex-direction: column;
+    margin: 0px;
+  }
+  .logos {
+    width: 100% !important;
+    height: 45% !important;
+    justify-content: start !important;
+    flex-direction: row !important ;
+  }
+
+  .sign {
+    width: 100% !important;
+    height: 45% !important;
+    justify-content: end !important;
+
+    flex-direction: row !important;
+  }
+  /* .btn {
+    height: 30px !important;
+  } */
+}

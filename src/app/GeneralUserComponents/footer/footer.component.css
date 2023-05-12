@@ -1,0 +1,7 @@
+@media (max-width: 850px) {
+  .p-2 div {
+    width: 100% !important;
+    /* flex-wrap: wrap !important; */
+    background-color: red;
+  }
+}

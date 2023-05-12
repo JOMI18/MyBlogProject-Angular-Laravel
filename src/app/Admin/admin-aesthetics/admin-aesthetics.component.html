@@ -1,0 +1,93 @@
+<form novalidate (ngSubmit)="submitA()" [formGroup]="aesthetics">
+  <div
+    style="
+      left: 25%;
+      top: 37%;
+
+      background-color: rgba(0, 0, 0, 0.849);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+
+      height: 63vh;
+      width: 74%;
+      font-family: henny;
+    "
+    class="position-absolute text-white shadow-lg d-flex flex-column justify-content-around align-items-center"
+  >
+    <h5>Aesthetics Template</h5>
+
+    <div style="width: 95%" class="d-flex justify-content-around">
+      <div style="width: 45%" class="form-group">
+        <input
+          type="text"
+          name=""
+          id=""
+          class="form-control"
+          formControlName="category"
+          placeholder="Category of Aesthetics"
+        />
+        <small>
+          <span
+            class="text-danger"
+            *ngIf="(f['category'].touched || submitted) && f['category'].errors?.['required']"
+            >Category is required</span
+          ></small
+        >
+      </div>
+
+      <div style="width: 48%" class="form-group">
+        <input
+          type="file"
+          name=""
+          id=""
+          class="form-control"
+          formControlName="file"
+          (change)="uploadFile($event)"
+          [ngClass]="{ 'is-invalid': submitted && f.file.errors }"
+          #image
+        />
+        <small
+          >This file is for record cover
+          <span
+            class="text-danger"
+            *ngIf="(f['file'].touched || submitted) && f['file'].errors?.['required']"
+            >File is required</span
+          ></small
+        >
+      </div>
+    </div>
+
+    <div style="width: 90%">
+      <div class="form-group w-100">
+        <input
+          type="text"
+          name=""
+          id=""
+          class="form-control"
+          formControlName="description"
+          placeholder="Description"
+        />
+        <small>
+          <span
+            class="text-danger"
+            *ngIf="(f['description'].touched || submitted) && f['description'].errors?.['required']"
+            >Description is required</span
+          ></small
+        >
+      </div>
+    </div>
+
+    <div class="form-group w-25">
+      <button
+        [disabled]="aesthetics?.invalid || submitted"
+        class="btn btn-info w-100"
+      >
+        Create Post
+        <span
+          *ngIf="submitted"
+          class="spinner-border spinner-border-sm mr-1"
+        ></span>
+      </button>
+    </div>
+  </div>
+</form>

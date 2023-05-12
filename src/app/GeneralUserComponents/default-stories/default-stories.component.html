@@ -1,0 +1,198 @@
+<div
+  style="height: 250vh; font-family: brasika"
+  class="container-fluid w-100 d-flex flex-column"
+>
+  <div
+    class="d-flex entire justify-content-evenly align-items-center w-100 text-white"
+    style="height: 20%; border-bottom: 1px solid black"
+  >
+    <div
+      style="height: 100%; width: 28%"
+      class="d-flex aes justify-content-evenly align-items-center"
+      *ngFor="let item of AesArr"
+    >
+      <div
+        style="height: 98%; width: 80%"
+        class="p-1 d-flex border-black frame flex-column align-items-center justify-content-evenly"
+      >
+        <div class="base w-100 h-100">
+          <img
+            class="border border-dark imag rounded-1"
+            style="width: 100%; height: 100%"
+            src="{{ item.Image }}"
+            alt=""
+          />
+          <div class="overlay" style="font-family: brasika; text-align: center">
+            <div
+              class="butts w-100 h-100 d-flex flex-column justify-content-evenly align-items-center"
+            >
+              <h3>{{ item.Category }} Aesthetics</h3>
+              <div>{{ item.Description }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="text-white dir movies d-flex justify-content-evenly align-items-center w-100 text-white"
+    style="height: 22%; border-bottom: 1px solid black"
+  >
+    <div
+      style="width: 40%"
+      class="h-100 p-1 movies1 d-flex align-items-center justify-content-center"
+      *ngFor="let item of MovieArr"
+    >
+      <div class="base mov" style="width: 80%; height: 85%">
+        <img
+          class="border-dark imag rounded-1"
+          style="width: 100%; height: 100%"
+          src="{{ item.Image }}"
+          alt=""
+        />
+        <div class="overlay">
+          <div class="w-100 h-100 border border-black shadow-lg">
+            <video
+              target="_blank"
+              class="w-100 h-100"
+              [src]="item.Trailer"
+              controls
+              loop
+            ></video>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="
+        width: 60%;
+        font-size: 15px;
+
+        font-family: brasika;
+      "
+      class="d-flex movies2 writings flex-column justify-content-evenly text-dark align-items-start h-100 p-3"
+      *ngFor="let item of MovieArr"
+    >
+      <div>Title: {{ item.Title }}</div>
+      <div>Story Line: {{ item.Description }}</div>
+      <div>Original Release: {{ item.ReleaseDate }}</div>
+      <div>Ratings: {{ item.Ratings }}</div>
+    </div>
+  </div>
+
+  <div
+    class="d-flex music dir writings p-1 w-100"
+    style="height: 23%; border-bottom: 1px solid black"
+    *ngFor="let item of MusicArr"
+  >
+    <div
+      class="h-100 p-3 music1 d-flex flex-column justify-content-evenly align-items-start"
+      style="width: 50%"
+    >
+      <div>Title: {{ item.Title }}</div>
+      <div style="height: 22%" class="w-75 audio">
+        <audio
+          target="_blank"
+          class="w-100 h-100"
+          [src]="item.Audio"
+          controls
+          loop
+        ></audio>
+      </div>
+      <div>Artist: {{ item.Artist }}</div>
+      <div>Original Release: {{ item.ReleaseDate }}</div>
+    </div>
+
+    <div
+      class="d-flex music2 justify-content-center align-items-center h-100"
+      style="width: 50%"
+      *ngFor="let item of MusicArr"
+    >
+      <img
+        class="border mus border-dark imag rounded-1"
+        style="width: 65%; height: 90%"
+        src="{{ item.Image }}"
+        alt=""
+      />
+    </div>
+  </div>
+
+  <div
+    class="p-2 change d-flex dir flex-row w-100"
+    style="height: 23%; border-bottom: 1px solid black"
+  >
+    <div
+      class="w-75 switch d-flex justify-content-around align-items-center h-100"
+      *ngFor="let item of NovelArr"
+    >
+      <div
+        class="w-100 double h-100 p-1 d-flex align-items-center justify-content-evenly"
+      >
+        <div class="base one w-50 h-100">
+          <img
+            class="border nov border-dark imag rounded-1"
+            style="width: 82%; height: 95%"
+            src="{{ item.Image }}"
+            alt=""
+          />
+          <div class="overlay text-white lays">
+            <div
+              class="d-flex w-100 h-100 flex-column justify-content-evenly align-items-center"
+            >
+              <div>{{ item.Title }}</div>
+              <div>by</div>
+              <div>{{ item.Author }}</div>
+              <div>Original Release: {{ item.ReleaseDate }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-50 h-100 two d-flex flex-column justify-content-evenly align-items-center novels p-3"
+        >
+          <div class="writings" style="font-size: 13px">
+            Description: {{ item.Description }}
+          </div>
+          <div class="writings">Ratings: {{ item.Ratings }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="d-flex dir writings p-1 w-100"
+    style="height: 23%; border-bottom: 1px solid black"
+    *ngFor="let item of StoryArr"
+  >
+    <div
+      class="h-100 p-3 d-flex flex-column justify-content-evenly align-items-start"
+      style="width: 50%"
+    >
+      <div>Name: {{ item.Name }}</div>
+
+      <div>Age: {{ item.Age }}</div>
+      <span
+        >Nationality: {{ item.Nationality }}
+        <img
+          width="30px"
+          src="../../../assets/Images/STORY/Flag-Nigeria.webp"
+          alt=""
+      /></span>
+      <div>Story: {{ item.Story }}</div>
+    </div>
+
+    <div
+      class="d-flex justify-content-center align-items-center h-100"
+      style="width: 50%"
+    >
+      <img
+        class="border feran border-dark imag rounded-1"
+        style="width: 40%; height: 92%"
+        src="{{ item.Image }}"
+        alt=""
+      />
+    </div>
+  </div>
+</div>

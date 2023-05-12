@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: blenda;
+  src: url(assets/Fonts/blenda-script/Blenda-Script.otf);
+}
+@font-face {
+  font-family: Cassie;
+  src: url(assets/Fonts/cassandra-personal-use/Cassandra-Personal-Use/Cassandra-Personal-Use.ttf);
+}
+@font-face {
+  font-family: drillos;
+  src: url(assets/Fonts/drillos/Drillos.ttf);
+}
+@font-face {
+  font-family: redressed;
+  src: url(assets/Fonts/Redressed/Redressed-Regular.ttf);
+}
+
+@font-face {
+  font-family: brasika;
+  src: url(assets/Fonts/brasika-display/brasika-display.otf);
+}
+@font-face {
+  font-family: alisa;
+  src: url(assets/Fonts/Alisandra.ttf);
+}
+@font-face {
+  font-family: ancher;
+  src: url(assets/Fonts/Ancherr.otf);
+}
+@font-face {
+  font-family: amita;
+  src: url(assets/Fonts/Amita/Amita-Bold.ttf);
+}
+@font-face {
+  font-family: chewy;
+  src: url(assets/Fonts/Chewy/Chewy-Regular.ttf);
+}
+@font-face {
+  font-family: henny;
+  src: url(assets/Fonts/Henny_Penny/HennyPenny-Regular.ttf);
+}
+@font-face {
+  font-family: rye;
+  src: url(assets/Fonts/Rye/Rye-Regular.ttf);
+}
+@font-face {
+  font-family: tilla;
+  src: url(assets/Fonts/Tillana/Tillana-ExtraBold.ttf);
+}
+
+.flow::-webkit-scrollbar {
+  background-color: rgba(32, 32, 32, 0.671);
+  width: 10px;
+  height: 40px !important;
+}
+.flow::-webkit-scrollbar-button {
+  background-color: rgba(182, 178, 178, 0.842);
+}

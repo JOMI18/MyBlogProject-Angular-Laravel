@@ -1,0 +1,285 @@
+<div
+  style="
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../../assets/Images/signnn.jpg);
+    min-height: 100vh;
+    font-family: chewy;
+  "
+  class="container-fluid w-100"
+>
+  <h3 class="text-white" style="text-align: center">New User Registration!</h3>
+
+  <div
+    style="
+      border-radius: 100px;
+      background: linear-gradient(105deg, #566a75, rgb(125, 229, 255), #566a75);
+    "
+    class="form card w-50 mh-75 p-5 shadow-lg m-auto"
+  >
+    <form novalidate (ngSubmit)="submit()" [formGroup]="registerUsers">
+      <!-- <p class="text-white">{{ registerUsers.value | json }}</p> -->
+      <small class="text-white alert alert-black">
+        Note : All <span class="text-danger">*</span> fields are required</small
+      >
+      <div
+        style="border-top-left-radius: 10px; border-top-right-radius: 10px"
+        class="d-flex justify-content-evenly my-4 align-items-center bg-dark"
+      >
+        <div class="form-group m-2">
+          <label class="text-white" for="firstname"
+            >Firstname <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="firstname"
+            placeholder="John"
+          />
+          <small
+            class="text-danger"
+            *ngIf="
+           (users['firstname'].touched || submitted) && users['firstname'].errors?.['required']
+          "
+            >*Required field</small
+          >
+        </div>
+
+        <div class="form-group m-2">
+          <label class="text-white" for="lastname"
+            >Lastname <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="lastname"
+            placeholder="Smith"
+          />
+          <small
+            class="text-danger"
+            *ngIf="
+           (users['lastname'].touched || submitted) && users['lastname'].errors?.['required']
+          "
+            >*Required field</small
+          >
+        </div>
+
+        <div class="form-group m-2">
+          <label class="text-white" for="username"
+            >Username <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="username"
+            placeholder="Johnny78"
+          />
+          <small
+            class="text-danger"
+            *ngIf="
+           (users['username'].touched || submitted) && users['username'].errors?.['required']
+          "
+            >*Required field</small
+          >
+        </div>
+      </div>
+
+      <div
+        class="d-flex justify-content-around my-4 align-items-center bg-dark"
+      >
+        <div class="form-group m-2">
+          <label class="text-white" for="dob"
+            >Date of Birth <span class="text-danger">*</span>
+            <span
+              class="text-dark"
+              *ngIf="(users['dob'].touched) && users['dob'].errors?.['required']"
+            ></span
+          ></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="dob"
+            placeholder="mm/dd/yyyy"
+          />
+          <small
+            class="text-danger"
+            *ngIf="
+           (users['dob'].touched || submitted) && users['dob'].errors?.['required']
+          "
+            >*Required field</small
+          >
+        </div>
+
+        <div style="width: 55%" class="form-group m-2">
+          <label class="text-white" for="email"
+            >Email <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="email"
+            placeholder="john@smith.com"
+          />
+          <small
+            class="text-danger"
+            *ngIf="
+           (users['email'].touched || submitted) && users['email'].errors?.['required']
+          "
+            >*Required field</small
+          >
+        </div>
+      </div>
+
+      <div
+        class="d-flex justify-content-around my-4 align-items-center bg-dark"
+      >
+        <div style="width: 55%" class="form-group m-2">
+          <label class="text-white" for="phonenumber"
+            >Upload User Image <span class="text-danger">*</span></label
+          >
+          <input
+            type="file"
+            name=""
+            id=""
+            class="form-control"
+            formControlName="files"
+            (change)="uploadFile($event)"
+            [ngClass]="{ 'is-invalid': submitted && users.file.errors }"
+            #image
+          />
+          <small class="text-white"
+            >Upload a profile picture
+            <span
+              class="text-danger"
+              *ngIf="(users['files'].touched || submitted) && users['files'].errors?.['required']"
+              >File is required</span
+            ></small
+          >
+        </div>
+
+        <div class="form-group m-2">
+          <label class="text-white" for="phonenumber"
+            >Phonenumber <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="phonenumber"
+            placeholder=" xxx-xxx-xxxx"
+          />
+          <small
+            class="text-danger"
+            *ngIf="
+           (users['phonenumber'].touched || submitted) && users['phonenumber'].errors?.['required']
+          "
+            >*Required field</small
+          >
+        </div>
+      </div>
+
+      <div
+        style="
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        "
+        class="d-flex flex-column justify-content-around my-4 bg-dark"
+      >
+        <div
+          class="d-flex align-items-center justify-content-around my-4 bg-dark"
+        >
+          <div class="form-group m-2">
+            <label class="text-white" for="password"
+              >Password <span class="text-danger">*</span>
+            </label>
+            <input
+              type="password"
+              #show
+              class="form-control"
+              formControlName="password"
+              placeholder="Fill in your Password"
+            />
+            <span class="text-white" style="font-family: chewy"
+              ><i
+                class="fa fa-eye text-white"
+                (click)="
+                  show.type = show.type == 'password' ? 'text' : 'password'
+                "
+              >
+              </i>
+              show</span
+            >
+            <small
+              class="text-danger"
+              *ngIf="
+
+           (users['password'].touched || submitted) && users['password'].errors?.['required']
+          "
+              >*Required field</small
+            >
+          </div>
+
+          <div style="width: 55%" class="form-group m-2">
+            <label class="text-white" for="confirmpassword"
+              >Confirm password <span class="text-danger">*</span></label
+            >
+            <input
+              type="password"
+              #shows
+              class="form-control"
+              formControlName="confirmpassword"
+              placeholder="Confirm password"
+            />
+            <span class="text-white" style="font-family: chewy !important"
+              ><i
+                class="fa fa-eye text-white"
+                (click)="
+                  shows.type = shows.type == 'password' ? 'text' : 'password'
+                "
+              >
+              </i>
+              show</span
+            >
+            <small
+              class="text-danger"
+              *ngIf="
+           (users['confirmpassword'].touched || submitted) && users['confirmpassword'].errors?.['required']
+          "
+              >*Required Field</small
+            >
+            <small
+              class="text-danger"
+              *ngIf="
+           (users['confirmpassword'].touched || submitted) && users['confirmpassword'].errors?.['MustMatch']
+          "
+              >*Passwords Don't Match</small
+            >
+          </div>
+        </div>
+
+        <div class="text-white p-2">
+          <span class="text-danger">*</span> Password Requirements...
+          <small>Must Contain At least one capital, </small>
+          <small>Must Contain At least one small letter, </small>
+          <small>Must Contain At least one number, </small>
+          <small>Must Contain At least one special character, </small>
+          <small>Must be at least 8 characters long, </small>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center">
+        <button
+          [disabled]="registerUsers?.invalid || submitted"
+          class="btn btn-dark w-50"
+        >
+          <span
+            *ngIf="submitted"
+            class="spinner-border spinner-border-sm mr-1"
+          ></span>
+
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
