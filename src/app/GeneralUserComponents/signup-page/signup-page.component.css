@@ -1,0 +1,33 @@
+@media (max-width: 1000px) {
+  .mv {
+    width: 70% !important;
+  }
+}
+@media (max-width: 800px) {
+  .mv {
+    width: 85% !important;
+  }
+}
+@media (max-width: 530px) {
+  .mv {
+    width: 98% !important;
+    border-radius: 45px !important;
+
+    padding: 30px !important;
+  }
+}
+@media (max-width: 480px) {
+  .mv {
+    border-radius: 40px !important;
+    width: 98% !important;
+  }
+  .my-4 {
+    /* background-color: bisque !important; */
+    flex-direction: column !important;
+    justify-content: start !important;
+  }
+  .my-4 div {
+    /* background-color: rgb(205, 196, 255) !important; */
+    width: 94% !important;
+  }
+}
