@@ -11,7 +11,7 @@
     height: 100vh !important;
     width: 100% !important;
   "
-  class="d-flex justify-content-evenly text-white"
+  class="d-flex switch justify-content-evenly text-white"
 >
   <div
     style="
@@ -19,17 +19,17 @@
       border-radius: 20px;
       width: 23%;
     "
-    class="h-100 d-flex flex-column"
+    class="h-100 enlr1 d-flex flex-column"
   >
     <div
       style="height: 15%"
-      class="w-100 d-flex align-items-center justify-content-between"
+      class="w-100 d-flex navb align-items-center justify-content-between"
     >
       <div
-        class="d-flex justify-content-evenly align-items-center"
+        class="d-flex justify-content-evenly logo align-items-center"
         style="height: 50px; width: 120px"
       >
-        <div style="height: 50px; width: 50px">
+        <div style="height: 50px; width: 50px" class="fall">
           <img
             width="100%"
             height="100%"
@@ -43,13 +43,14 @@
       <div class="w-25 d-flex align-items-center justify-content-center h-50">
         <i
           style="color: rgb(0, 238, 255); font-size: 40px"
-          class="fa fa-bell"
+          class="fa fa-bell bells"
         ></i>
       </div>
     </div>
+
     <div
       style="height: 85%"
-      class="d-flex p-4 flex-column justify-content-between w-100"
+      class="d-flex p-4 info flex-column justify-content-between w-100"
     >
       <div
         style="
@@ -57,10 +58,10 @@
           background-color: rgba(68, 67, 67, 0.781);
           border-radius: 10px;
         "
-        class="w-100 d-flex flex-column justify-content-evenly p-2"
+        class="w-100 box1 d-flex flex-column justify-content-evenly p-2"
       >
         <h4>
-          <i class="fa fa-home text-info px-1"></i>
+          <i class="fa fa-home red text-info px-1"></i>
 
           <a
             class="text-white"
@@ -71,8 +72,8 @@
           </a>
         </h4>
 
-        <div class="d-flex w-100 h-75 justify-content-evenly">
-          <div class="h-100 d-flex flex-column justify-content-evenly">
+        <div class="d-flex w-100 heyd h-75 justify-content-evenly">
+          <div class="h-100 d-flex splice flex-column justify-content-evenly">
             <div>
               <i class="fa fa-music text-info"></i>
               <a
@@ -105,7 +106,7 @@
             </div>
           </div>
 
-          <div class="h-100 d-flex flex-column justify-content-evenly">
+          <div class="h-100 splice d-flex flex-column justify-content-evenly">
             <div>
               <i class="fa fa-video text-info"></i>
 
@@ -138,20 +139,23 @@
           background-color: rgba(118, 235, 243, 0.781);
           border-radius: 10px;
         "
-        class="w-100 d-flex flex-column justify-content-evenly p-3"
+        class="w-100 box2 d-flex flex-column justify-content-evenly p-3"
       >
-        <h3>Media</h3>
-        <div><i class="fa fa-video text-dark px-2"></i>WatchList</div>
-        <div><i class="fa fa-book text-dark px-2"></i>ReadList</div>
-        <div><i class="fa fa-heart text-dark px-2"></i>Favorites</div>
+        <h3 class="red">Media</h3>
+        <div class="flip">
+          <div><i class="fa fa-video text-dark px-2"></i>WatchList</div>
+          <div><i class="fa fa-book text-dark px-2"></i>ReadList</div>
+          <div><i class="fa fa-heart text-dark px-2"></i>Favorites</div>
+        </div>
       </div>
+
       <div
         style="
           height: 18%;
           background-color: rgba(72, 96, 104, 0.815);
           border-radius: 10px;
         "
-        class="w-100 d-flex flex-column justify-content-evenly p-3"
+        class="w-100 box3 d-flex flex-column justify-content-evenly p-3"
       >
         <div (click)="displayusers()">
           <i class="fa fa-gear text-info px-2"></i>Settings
@@ -163,7 +167,7 @@
     </div>
   </div>
 
-  <div class="w-75 h-100 d-flex flex-column" style="border-radius: 10px">
+  <div class="w-75 enlr2 h-100 d-flex flex-column" style="border-radius: 10px">
     <div
       style="
         height: 35%;
@@ -183,11 +187,11 @@
 
           /* background-color: rgba(110, 170, 170, 0.884); */
         "
-        class="d-flex"
+        class="d-flex expand"
       >
         <div
           style="width: 33%"
-          class="h-100 d-flex align-items-center justify-content-center"
+          class="h-100 d-flex pic align-items-center justify-content-center"
         >
           <div
             style="
@@ -204,8 +208,8 @@
           ></div>
         </div>
 
-        <div style="width: 74%" class="d-flex">
-          <div class="w-50 d-flex flex-column p-2 justify-content-around">
+        <div style="width: 74%" class="d-flex dets">
+          <div class="w-50 d-flex flex-column p-2 fig1 justify-content-around">
             <div>
               Fullname,
               <div style="font-family: chewy">
@@ -217,7 +221,7 @@
               <div style="font-family: chewy">{{ usersDetails.email }}</div>
             </div>
           </div>
-          <div class="w-50 d-flex flex-column p-2 justify-content-around">
+          <div class="w-50 d-flex flex-column p-2 fig2 justify-content-around">
             <div>
               Date of Birth,
               <div style="font-family: chewy">
@@ -245,7 +249,7 @@
           border-left: 1px solid rgba(255, 255, 255, 0.623);
           /* background-color: rgba(110, 170, 170, 0.884); */
         "
-        class="d-flex flex-column justify-content-evenly p-2"
+        class="d-flex esc flex-column justify-content-evenly p-2"
       >
         <h2>Welcome, {{ usersDetails.username }}!!!</h2>
         <div style="font-family: tilla">Id Number: {{ usersDetails.id }}</div>
@@ -268,7 +272,7 @@
         font-family: tilla;
       "
       *ngIf="noshow"
-      class="position-absolute text-white shadow-lg d-flex flex-column justify-content-around align-items-center"
+      class="position-absolute templ text-white shadow-lg d-flex flex-column justify-content-around align-items-center"
     >
       <div
         style="height: 5%"
