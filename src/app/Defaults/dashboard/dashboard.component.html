@@ -12,12 +12,22 @@
   class="d-flex justify-content-evenly text-white"
 >
   <div
+    (click)="toggleClick()"
+    style="width: 35px; height: 35px; text-align: center; display: none"
+    class="position-fixed fixed-top bg-dark menu"
+    id="toggle"
+  >
+    <i style="font-size: 20px" class="fa fa-bars"></i>
+  </div>
+
+  <div
     style="
       background-color: rgba(0, 0, 0, 0.466);
       border-radius: 20px;
       width: 23%;
     "
-    class="h-100 d-flex flex-column"
+    class="h-100 enlr1 d-flex flex-column"
+    id="sidebar"
   >
     <div
       style="height: 15%"
@@ -27,7 +37,7 @@
         class="d-flex justify-content-evenly align-items-center"
         style="height: 50px; width: 120px"
       >
-        <div style="height: 50px; width: 50px">
+        <div class="imgg" style="height: 50px; width: 50px">
           <img
             width="100%"
             height="100%"
@@ -36,18 +46,19 @@
             alt="logo"
           />
         </div>
-        <span style="font-size: 40px">JB</span>
+        <span style="font-size: 40px" class="jb">JB</span>
       </div>
       <div class="w-25 d-flex align-items-center justify-content-center h-50">
         <i
           style="color: rgb(0, 238, 255); font-size: 40px"
-          class="fa fa-bell"
+          class="fa fa-bell jb"
         ></i>
       </div>
     </div>
+
     <div
       style="height: 85%"
-      class="d-flex p-4 flex-column justify-content-between w-100"
+      class="d-flex p-4 redd flex-column justify-content-between w-100"
     >
       <div
         style="
@@ -58,9 +69,14 @@
         class="w-100 d-flex flex-column justify-content-evenly p-3"
       >
         <h3>Menu</h3>
-        <div><i class="fa fa-compass text-info px-2"></i> Browse</div>
-        <div><i class="fa fa-search text-info px-2"></i> Search</div>
+        <div class="needs">
+          <i class="shrnk fa fa-compass text-info px-2"></i> Browse
+        </div>
+        <div class="needs">
+          <i class="shrnk fa fa-search text-info px-2"></i> Search
+        </div>
       </div>
+
       <div
         style="
           height: 38%;
@@ -70,10 +86,17 @@
         class="w-100 d-flex flex-column justify-content-evenly p-3"
       >
         <h3>Media</h3>
-        <div><i class="fa fa-video text-dark px-2"></i>WatchList</div>
-        <div><i class="fa fa-book text-dark px-2"></i>ReadList</div>
-        <div><i class="fa fa-heart text-dark px-2"></i>Favorites</div>
+        <div class="needs">
+          <i class="shrnk fa fa-video text-dark px-2"></i>WatchList
+        </div>
+        <div class="needs">
+          <i class="shrnk fa fa-book text-dark px-2"></i>ReadList
+        </div>
+        <div class="needs">
+          <i class="shrnk fa fa-heart text-dark px-2"></i>Favorites
+        </div>
       </div>
+
       <div
         style="
           height: 20%;
@@ -82,16 +105,18 @@
         "
         class="w-100 d-flex flex-column justify-content-evenly p-3"
       >
-        <div><i class="fa fa-gear text-info px-2"></i>Settings</div>
-        <div (click)="logout($event)">
-          <i class="fa fa-sign-out text-info px-2"></i>Logout
+        <div class="needs">
+          <i class="shrnk fa fa-gear text-info px-2"></i>Settings
+        </div>
+        <div (click)="logout($event)" class="needs">
+          <i class="shrnk fa fa-sign-out text-info px-2"></i>Logout
         </div>
       </div>
     </div>
   </div>
 
   <div
-    class="w-75 h-100 d-flex flex-column justify-content-around"
+    class="w-75 enlr2 h-100 d-flex flex-column justify-content-around"
     style="border-radius: 10px"
   >
     <div
@@ -101,38 +126,39 @@
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
       "
-      class="w-100 d-flex align-items-center justify-content-evenly"
+      class="w-100 here d-flex align-items-center justify-content-evenly"
     >
       <div
         style="
           width: 60%;
           height: 90%;
           border-radius: 15px;
-          background-color: rgba(67, 95, 95, 0.61);
+          background-color: rgba(55, 105, 105, 0.753);
         "
-        class="d-flex"
+        class="d-flex expand"
       >
         <div
           style="width: 33%"
-          class="h-100 d-flex align-items-center justify-content-center"
+          class="h-100 pic d-flex align-items-center justify-content-center"
         >
           <div
             style="
               border-radius: 15px !important;
               border: 1px solid rgb(73, 73, 73);
               width: 136px;
-              height: 180px;
+              height: 160px;
             background-image: url('{{ imagepath + usersDetails.UserImage }}');
            background-repeat:no-repeat;
             background-size: cover;
             background-position: top;
 
             "
+            class="pict"
           ></div>
         </div>
 
-        <div style="width: 74%" class="d-flex">
-          <div class="w-50 d-flex flex-column p-2 justify-content-around">
+        <div style="width: 74%" class="d-flex dets">
+          <div class="w-50 d-flex flex-column p-2 fig1 justify-content-around">
             <div>
               Fullname,
               <div style="font-family: chewy">
@@ -145,11 +171,17 @@
             </div>
           </div>
 
-          <div class="w-50 p-4">
+          <div class="w-50 d-flex flex-column p-2 fig2 justify-content-around">
             <div>
               Date of Birth,
               <div style="font-family: chewy">
                 {{ usersDetails.dateofbirth }}
+              </div>
+            </div>
+            <div>
+              Id Number,
+              <div style="font-family: chewy">
+                {{ usersDetails.id }}
               </div>
             </div>
           </div>
@@ -162,14 +194,16 @@
           height: 90%;
 
           border-radius: 15px;
-          background-color: rgba(63, 90, 90, 0.911);
+          background-color: rgba(55, 105, 105, 0.753);
         "
-        class="d-flex flex-column justify-content-evenly p-2"
+        class="d-flex esc flex-column justify-content-evenly p-2"
       >
-        <h2>Welcome, {{ usersDetails.username }}!!!</h2>
-        <div style="font-family: tilla">Id Number: {{ usersDetails.id }}</div>
+        <div class="switch" style="font-size: 30px">
+          Welcome, {{ usersDetails.username }}!!!
+        </div>
+
         <!-- <div style="font-family: tilla">Today is January 18, 2023</div> -->
-        <div style="font-family: tilla">We're excited to see you explore!</div>
+        <div style="font-family: tilla">...What do you have in mind today?</div>
       </div>
     </div>
 
@@ -197,7 +231,7 @@
             text-align: center;
             background-repeat: no-repeat;
           "
-          class="w-25 shadow-lg d-flex flex-column justify-content-evenly p-3"
+          class="w-25 shadow-lg letr d-flex flex-column justify-content-evenly p-3"
         >
           <a
             class="text-white"
@@ -211,7 +245,7 @@
         <div
           style="
             height: 80%;
-            background-color: rgba(118, 235, 243, 0.781);
+            /* background-color: rgba(118, 235, 243, 0.781); */
             border-radius: 10px;
             background-image: url(../../../assets/Images/MusicCover.jpg);
             background-position: center;
@@ -222,7 +256,7 @@
             text-align: center;
             background-repeat: no-repeat;
           "
-          class="w-25 shadow-lg d-flex flex-column justify-content-evenly p-3"
+          class="w-25 shadow-lg letr d-flex flex-column justify-content-evenly p-3"
         >
           <a
             class="text-white"
@@ -242,11 +276,11 @@
             background-position: center;
             border: 1px solid white;
             background-size: cover;
-            font-size: 40px;
+            font-size: 30px;
             text-align: center;
             background-repeat: no-repeat;
           "
-          class="w-25 shadow-lg d-flex flex-column justify-content-evenly p-3"
+          class="w-25 letr letra shadow-lg d-flex flex-column justify-content-evenly p-3"
         >
           <a
             class="text-white"
@@ -272,7 +306,7 @@
             text-align: center;
             background-repeat: no-repeat;
           "
-          class="w-25 shadow-lg d-flex flex-column justify-content-evenly p-3"
+          class="w-25 shadow-lg letr d-flex flex-column justify-content-evenly p-3"
         >
           <a
             class="text-white"
@@ -296,7 +330,7 @@
             text-align: center;
             background-repeat: no-repeat;
           "
-          class="w-25 shadow-lg d-flex flex-column justify-content-evenly p-3"
+          class="w-25 shadow-lg letr d-flex flex-column justify-content-evenly p-3"
         >
           <a
             class="text-white"
