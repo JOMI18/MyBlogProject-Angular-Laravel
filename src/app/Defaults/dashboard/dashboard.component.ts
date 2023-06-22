@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   usersName: any;
   user: any;
+  dis = true;
+  sidebar: any;
   usersDetails: any = [];
   imagepath: any = 'http://jomi.com/UserImage/';
   today = new Date();
@@ -25,5 +27,9 @@ export class DashboardComponent implements OnInit {
     event.preventDefault();
     localStorage.removeItem('loggedIn');
     this.router.navigate(['/']);
+  }
+  toggleClick() {
+    this.sidebar.toggle();
+    alert('clicks after');
   }
 }
